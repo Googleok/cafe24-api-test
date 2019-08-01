@@ -26,23 +26,17 @@ public class ApiController {
 	
 	@GetMapping("/scripttag")
 	public ResponseEntity<ScriptTagResult> getScriptTags() throws URISyntaxException {
-		
-		ScriptTagResult result = apiService.getScriptTags();
-		return ResponseEntity.status(HttpStatus.OK).body(result);
+		return ResponseEntity.status(HttpStatus.OK).body(apiService.getScriptTags());
 	}
 	
 	@PostMapping("/scripttag")
 	public  ResponseEntity<String> createScriptTags(@RequestBody ScriptTagPostDto scriptTagPostDto) throws URISyntaxException {
-		System.out.println(scriptTagPostDto);
-		ResponseEntity<String> result = apiService.postScriptTags(scriptTagPostDto);
-		return result;
+		return apiService.postScriptTags(scriptTagPostDto);
 	}
 	
 	@DeleteMapping("/scripttag/{no}")
 	public ResponseEntity<String> DeleteScriptTags(@PathVariable(value = "no")Long deleteNo) throws URISyntaxException {
-		System.out.println(deleteNo);
-		ResponseEntity<String> result = apiService.deleteScriptTags(deleteNo);
-		return result;
+		return apiService.deleteScriptTags(deleteNo);
 	}
 	
 	
